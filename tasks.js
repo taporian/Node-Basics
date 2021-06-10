@@ -80,6 +80,12 @@ function quit(){
   console.log('Quitting now, goodbye!')
   process.exit();
 }
+/**
+ * Lists all the possible commands
+ *
+ * @returns {void}
+ */
+
 function help(){
   console.log('type the following commands\n chris\n quit\n');
 }
