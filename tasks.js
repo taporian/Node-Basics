@@ -73,7 +73,15 @@ function unknownCommand(c){
 function hello(h){
   const value= h.replace('hello',' ');
   
-  console.log('hello '+value.trim()+'!')
+  if(value.trim().length ==0){
+        console.log('hello!');
+        
+  }
+  else{
+    console.log('hello '+value.trim()+'!');
+  }
+  
+  
 }
 
 
