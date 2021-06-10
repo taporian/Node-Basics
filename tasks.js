@@ -103,7 +103,7 @@ function quit(){
 
 function help(){
   
-  console.log('type the following commands\n chris\n quit\n');
+  console.log('type the following commands\n hello\n or hello with any state  \n or quit\n');
 }
 
 // The following line starts the application
