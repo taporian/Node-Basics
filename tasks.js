@@ -37,7 +37,7 @@ function onDataReceived(text) {
   if (text === 'quit\n') {
     quit();
   }
-  else if(text === 'hello\n'){
+  else if(text === 'chris\n'){
     hello();
   }
   else{
@@ -64,7 +64,7 @@ function unknownCommand(c){
  * @returns {void}
  */
 function hello(){
-  console.log('hello!')
+  console.log('chris!')
 }
 
 
@@ -79,4 +79,4 @@ function quit(){
 }
 
 // The following line starts the application
-startApp("Jad Sarout")
+startApp("christaphor harmandarian")
