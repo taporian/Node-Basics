@@ -32,15 +32,19 @@ function startApp(name){
  * 
  * @param  {string} text data typed by the user
  * @returns {void}
- */
+ */ 
 function onDataReceived(text) {
-  if (text === 'exit\n' || text==='quit\n') {
+  
+ 
+  if (text=== 'exit\n' || text==='quit\n') {
     quit();
   }
-  else if(text === 'chris\n'){
-    hello();
+  else if(text.slice(0,5)=== 'hello'){
+    
+    hello(text);
   }
   else if(text==='help\n'){
+    
     help();
   }
   else{
@@ -66,8 +70,10 @@ function unknownCommand(c){
  *
  * @returns {void}
  */
-function hello(){
-  console.log('chris!')
+function hello(h){
+  const value= h.replace('hello',' ');
+  
+  console.log('hello '+value.trim()+'!')
 }
 
 
@@ -77,6 +83,7 @@ function hello(){
  * @returns {void}
  */
 function quit(){
+  
   console.log('Quitting now, goodbye!')
   process.exit();
 }
@@ -87,6 +94,7 @@ function quit(){
  */
 
 function help(){
+  
   console.log('type the following commands\n chris\n quit\n');
 }
 
