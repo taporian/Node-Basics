@@ -65,7 +65,7 @@ function onDataReceived(text) {
    
    removeValue(parseInt(text.split(' ')[1].trim())-1);
  }
- else if(text.split(' ')[0]==='edit\n' ){
+ else if(text.substring(0,4)==='edit'){
    editValue(text.substring(4).trim());
  }
 
@@ -140,7 +140,7 @@ function addValue(text){
   
   
       if(id===0){
-        
+
         arrList.pop();
       }
      else if(id>=arrList.length){
@@ -155,18 +155,23 @@ function displayList(){
   }
 }
 function editValue(text){
-  // console.log(text);
+  // console.log(parseInt(text));
+  // console.log(arrList.indexOf(text));
   // console.log(text.length);
   // console.log(parseInt(text));
   // console.log(arrList.length);
-  // if(text===''){
-  //   console.log('error command edit should take a task number and new text')
-  // }
-  // else if (text.includes('edit')===false && text !==''){
-  //   console.log('edited last value of list');
-  //   arrList.pop();
-  //   arrList.push(text)
-  // }
+  if(text===''){
+    console.log('error command edit should take a task number and new text')
+  }
+  else if(Number.isInteger(parseInt(text.split(' ')))){
+    
+    arrList[parseInt(text)-1]= text.substring(text.split(' ')[0].length+1)
+  }
+  else{
+    arrList.pop();
+    addValue(text); 
+
+  }
   
   
 }
