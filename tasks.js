@@ -55,9 +55,9 @@ function onDataReceived(text) {
     
     help();
   }
-//  else if(text==='add\n'){
-//    addValue();
-//  }
+ else if(text.split(' ')[0]==='add' ) {
+   addValue(text.substring(4).trim());
+ }
   else{
     unknownCommand(text);
   }
@@ -117,9 +117,16 @@ function help(){
   
   console.log('type the following commands\n hello\n or hello with any state  \n or quit\n');
 };
-// function addValue(){
-//   arrList.push(text);
-// }
+function addValue(text){
+  if(text===''){
+    console.log('error command add should take a task like "add x" ')
+  }
+  else{
+    arrList.push(text);
+  }
+ 
+  
+}
 function displayList(){
   for(let i=0; i < arrList.length ;i++){
         console.log(i+1 +' - [ ] '+ arrList[i]);
