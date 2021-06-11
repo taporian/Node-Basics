@@ -58,11 +58,13 @@ function onDataReceived(text) {
  else if(text.split(' ')[0]==='add' ) {
    addValue(text.substring(4).trim());
  }
-
- else if(text.slice(0,6)==='remove'){
-   removeValue(text);
+ else if(text ==='remove\n'){
+   removeValue(0);
  }
-
+ else if(text.split(' ')[0]==='remove' && text.split(' ')[1].trim() !==""){
+   
+   removeValue(parseInt(text.split(' ')[1].trim()));
+ }
   else{
     unknownCommand(text);
   }
@@ -120,7 +122,7 @@ function quit(){
 
 function help(){
   
-  console.log('type the following commands\n hello\n or hello with any state  \n or quit\n or add \n or remove');
+  console.log('type the following commands\n hello\n or hello with any state  \n or quit\n');
 };
 function addValue(text){
   if(text===''){
@@ -130,23 +132,12 @@ function addValue(text){
     arrList.push(text);
   }
  };
-
- function removeValue(q){
-   var value2 =q.replace('remove','').trim().replace(/ /g,'');
-   
-    
-   
-   
-   if(value2.trim().length==0){
-     arrList.pop();
-   }
-   if(value2.length == 1){
-     console.log('integer');
-    arrList.splice(value2.length,1);
-   }
-      
+ function removeValue(id){
+      if(id===0){
+        arrList.pop();
+      }
+     else(arrList.splice(id-1,1))
  }
-//
 function displayList(){
   for(let i=0; i < arrList.length ;i++){
         console.log(i+1 +' - [ ] '+ arrList[i]);
