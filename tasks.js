@@ -33,10 +33,18 @@ function startApp(name){
  * @param  {string} text data typed by the user
  * @returns {void}
  */ 
+
+var arrList=[
+  "help",
+  "exit",
+  "list"
+];
 function onDataReceived(text) {
   
- 
-  if (text=== 'exit\n' || text==='quit\n') {
+ if(text==="list\n"){
+   displayList();
+ }
+  else if (text=== 'exit\n' || text==='quit\n') {
     quit();
   }
   else if(text.slice(0,5)=== 'hello'){
@@ -47,9 +55,13 @@ function onDataReceived(text) {
     
     help();
   }
+//  else if(text==='add\n'){
+//    addValue();
+//  }
   else{
     unknownCommand(text);
   }
+
 }
 
 
@@ -104,7 +116,16 @@ function quit(){
 function help(){
   
   console.log('type the following commands\n hello\n or hello with any state  \n or quit\n');
+};
+// function addValue(){
+//   arrList.push(text);
+// }
+function displayList(){
+  for(let i=0; i < arrList.length ;i++){
+        console.log(i+1 +' - [ ] '+ arrList[i]);
+  }
 }
+
 
 // The following line starts the application
 startApp("christaphor harmandarian")
