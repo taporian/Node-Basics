@@ -34,11 +34,16 @@ function startApp(name){
  * @returns {void}
  */ 
 
+var checkList=[];
 var arrList=[
+
+
   "help",
   "exit",
   "list"
+
 ];
+var checkTest=0;
 function onDataReceived(text) {
   
  if(text==="list\n"){
@@ -67,6 +72,12 @@ function onDataReceived(text) {
  }
  else if(text.substring(0,4)==='edit'){
    editValue(text.substring(4).trim());
+ }
+ else if(text.slice(0,5) ==='check'){
+   checkValue(text.slice(5));
+ }
+ else if(text.slice(0,7) ==='uncheck'){
+  uncheckValue(text.slice(7));
  }
 
   else{
@@ -150,16 +161,33 @@ function addValue(text){
       else{arrList.splice(id,1)}
  }
 function displayList(){
+  // arrList['chris']='chris';
+  // const util = require('util')
+
+// console.log(util.inspect(arrList, {showHidden: false, depth: null}));
+// console.log(util.inspect(arrList, false, null, true /* enable colors */));
+// alternative shortcut
+// console.log(arrList);
+
+ 
   for(let i=0; i < arrList.length ;i++){
-        console.log(i+1 +' - [ ] '+ arrList[i]);
+    if(checkList.includes(' - [✓] ')===false){
+      console.log(checkList[i]=((i+1 +' - [ ] '+ arrList[i])));
+    }
+    else{
+      console.log(checkList[i]=((i+1 +' - [✓] '+ arrList[i])));
+    }
+       
+        
+      
   }
+
+  
+  
+
 }
 function editValue(text){
-  // console.log(parseInt(text));
-  // console.log(arrList.indexOf(text));
-  // console.log(text.length);
-  // console.log(parseInt(text));
-  // console.log(arrList.length);
+
   if(text===''){
     console.log('error command edit should take a task number and new text')
   }
@@ -173,7 +201,45 @@ function editValue(text){
 
   }
   
-  
+}
+
+function checkValue(text){
+  // console.log(displayList());
+  console.log(parseInt(text));
+  if(text.includes(parseInt(text))==true){
+    for(let i=0; i < arrList.length ;i++){
+      if(i!=parseInt(text-1)){
+        console.log(checkList=(i+1 +' - [ ] '+ arrList[i]));
+        
+        
+      }
+      else{
+        console.log(checkList=(i+1 +' - [✓] '+ arrList[i]))
+      }
+      
+      
+      
+}
+      
+  }
+}
+function uncheckValue(text){
+  // console.log(displayList());
+  console.log(parseInt(text));
+  if(text.includes(parseInt(text))==true){
+    for(let i=0; i < arrList.length ;i++){
+      if(i!=parseInt(text-1)){
+        console.log(checkList=(i+1 +' - [✓] '+ arrList[i]));
+      }
+      else{
+        console.log(checkList=(i+1 +' - [ ] '+ arrList[i]))
+      }
+      
+      
+      
+}
+      
+  }
 }
 
 
