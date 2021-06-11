@@ -133,8 +133,13 @@ function addValue(text){
   }
  };
  function removeValue(id){
+   console.log(id);
+  console.log(arrList.length);
       if(id===0){
         arrList.pop();
+      }
+      else if(id !== arrList.length){
+        console.log('remove number task does not exisit')
       }
      else(arrList.splice(id-1,1))
  }
