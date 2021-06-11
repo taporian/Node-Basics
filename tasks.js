@@ -63,8 +63,12 @@ function onDataReceived(text) {
  }
  else if(text.split(' ')[0]==='remove' && text.split(' ')[1].trim() !==""){
    
-   removeValue(parseInt(text.split(' ')[1].trim()));
+   removeValue(parseInt(text.split(' ')[1].trim())-1);
  }
+ else if(text.split(' ')[0]==='edit\n' ){
+   editValue(text.substring(4).trim());
+ }
+
   else{
     unknownCommand(text);
   }
@@ -133,20 +137,37 @@ function addValue(text){
   }
  };
  function removeValue(id){
-   console.log(id);
-  console.log(arrList.length);
+  
+  
       if(id===0){
         arrList.pop();
       }
-      else if(id !== arrList.length){
-        console.log('remove number task does not exisit')
-      }
-     else(arrList.splice(id-1,1))
+     else if(id>=arrList.length){
+       console.log('task number does not exisit');
+     }
+     
+      else{arrList.splice(id,1)}
  }
 function displayList(){
   for(let i=0; i < arrList.length ;i++){
         console.log(i+1 +' - [ ] '+ arrList[i]);
   }
+}
+function editValue(text){
+  // console.log(text);
+  // console.log(text.length);
+  // console.log(parseInt(text));
+  // console.log(arrList.length);
+  // if(text===''){
+  //   console.log('error command edit should take a task number and new text')
+  // }
+  // else if (text.includes('edit')===false && text !==''){
+  //   console.log('edited last value of list');
+  //   arrList.pop();
+  //   arrList.push(text)
+  // }
+  
+  
 }
 
 
