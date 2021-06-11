@@ -120,7 +120,7 @@ function quit(){
 
 function help(){
   
-  console.log('type the following commands\n hello\n or hello with any state  \n or quit\n');
+  console.log('type the following commands\n hello\n or hello with any state  \n or quit\n or add \n or remove');
 };
 function addValue(text){
   if(text===''){
