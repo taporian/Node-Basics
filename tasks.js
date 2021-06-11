@@ -140,6 +140,7 @@ function addValue(text){
   
   
       if(id===0){
+        
         arrList.pop();
       }
      else if(id>=arrList.length){
