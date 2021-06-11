@@ -58,6 +58,11 @@ function onDataReceived(text) {
  else if(text.split(' ')[0]==='add' ) {
    addValue(text.substring(4).trim());
  }
+
+ else if(text.slice(0,6)==='remove'){
+   removeValue(text);
+ }
+
   else{
     unknownCommand(text);
   }
@@ -124,9 +129,24 @@ function addValue(text){
   else{
     arrList.push(text);
   }
- 
-  
-}
+ };
+
+ function removeValue(q){
+   var value2 =q.replace('remove','').trim().replace(/ /g,'');
+   
+    
+   
+   
+   if(value2.trim().length==0){
+     arrList.pop();
+   }
+   if(value2.length == 1){
+     console.log('integer');
+    arrList.splice(value2.length,1);
+   }
+      
+ }
+//
 function displayList(){
   for(let i=0; i < arrList.length ;i++){
         console.log(i+1 +' - [ ] '+ arrList[i]);
