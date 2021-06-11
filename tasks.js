@@ -137,7 +137,7 @@ function quit(){
 
 function help(){
   
-  console.log('type the following commands\n hello\n or hello with any state  \n or quit\n or add\n or remove');
+  console.log('type the following commands\n hello\n or hello with any state  \n or quit\n or add\n or remove \n check or \n uncheck');
 };
 function addValue(text){
   if(text===''){
